@@ -33,7 +33,7 @@ export default class TelaLogin extends Component {
         <TouchableOpacity
           style={styles.botao}
           onPress={() => {
-            this.clicou();
+            this.props.navigation.navigate('Home');
           }}>
           <Text style={styles.botaoTexto}>Login</Text>
         </TouchableOpacity>
