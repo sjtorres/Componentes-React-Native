@@ -14,6 +14,10 @@ export default class TelaLogin extends Component {
     Alert.alert('Looknet Digital', 'Você clicou em mim');
   };
 
+  state = {
+    nome: '',
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -22,7 +26,11 @@ export default class TelaLogin extends Component {
           source={require('../assets/logo.jpg')}
         />
 
-        <TextInput style={styles.input} placeholder="Digite seu email" />
+        <TextInput
+          style={styles.input}
+          onChangeText={text => (this.state.nome = text)}
+          placeholder="Digite seu email"
+        />
 
         <TextInput
           style={styles.input}
@@ -33,7 +41,7 @@ export default class TelaLogin extends Component {
         <TouchableOpacity
           style={styles.botao}
           onPress={() => {
-            this.props.navigation.navigate('Home');
+            this.props.navigation.navigate('Home', {nome: this.state.nome});
           }}>
           <Text style={styles.botaoTexto}>Login</Text>
         </TouchableOpacity>
