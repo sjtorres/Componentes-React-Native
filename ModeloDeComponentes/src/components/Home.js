@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, Text, View, StyleSheet} from 'react-native';
+import {Image, View, StyleSheet, Text, Button} from 'react-native';
 
 export default class Home extends Component {
   render() {
@@ -9,12 +9,16 @@ export default class Home extends Component {
     return (
       <View style={styles.container}>
         <Image
-          style={styles.imagemProfile}
+          style={styles.profile}
           source={require('../assets/Perfil-01.jpg')}
         />
 
-        <Text style={styles.textoBemVindo}>Olá {nomeUsuario} !!!</Text>
-        <Text style={styles.texto2}>Esse é o seu Profile</Text>
+        <Text style={styles.textoOla}>Olá {nomeUsuario} !</Text>
+        <Text style={styles.textoProfile}>Esse é o seu Profile</Text>
+        <Button
+          title="Sobre"
+          onPress={() => this.props.navigation.navigate('Sobre')}
+        />
       </View>
     );
   }
@@ -27,20 +31,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#329965',
   },
-  textoBemVindo: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  texto2: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  imagemProfile: {
-    width: 100,
-    height: 100,
+  logo: {
+    width: 150,
+    height: 150,
     borderRadius: 100,
-    marginBottom: 10,
+  },
+  logoMenu: {
+    width: 40,
+    height: 40,
+    borderRadius: 100,
+  },
+  profile: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+  },
+  textoOla: {
+    fontSize: 24,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  textoProfile: {
+    fontSize: 16,
+    color: '#fff',
   },
 });

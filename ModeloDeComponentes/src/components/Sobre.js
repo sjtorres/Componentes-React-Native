@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Button} from 'react-native';
 
 export default class Sobre extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>Bem vindo a página Sobre!</Text>
+        <Button
+          title="Perfil"
+          onPress={() => this.props.navigation.navigate('Profile')}
+        />
       </View>
     );
   }
